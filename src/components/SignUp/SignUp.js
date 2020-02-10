@@ -25,7 +25,7 @@ class SignUp extends React.Component  {
 
 	//because fetch is naturally a get method. we have to add that we need post
 	onSubmitSignIn = () => {
-		fetch('http://localhost:3001/signup', {   //3000:register where mine 3000 is for front end and 3001 is backend and his 3000 is for backend & 3001 for front end
+		fetch('https://stark-river-72091.herokuapp.com/signup', {   //3000:register where mine 3000 is for front end and 3001 is backend and his 3000 is for backend & 3001 for front end
 			method: 'post',
 			headers: {'Content-Type' : 'application/json'},
 			body: JSON.stringify({
@@ -35,7 +35,7 @@ class SignUp extends React.Component  {
 			})
 
 			}).then(response => response.json()).then(user => {
-				if (user) {
+				if (user.id) {
 					this.props.loadUser(user)
 					this.props.onRouteChange('home'); //not make them signin else we get 'success'
 				}
